@@ -1,0 +1,67 @@
+html {
+    height: 100%;
+}
+
+.bg-welcome {
+    background: url(../img/bg-yellow.png) no-repeat center center;
+    background-size: cover;
+    width: 100%;
+}
+
+.river {
+    width: 100%;
+    height: 100px;
+    background: url(../img/water.png) repeat-x;
+    background-size: cover;
+    position: absolute;
+    bottom: 0;
+}
+
+.bottle {
+    position: absolute;
+    bottom: 60px;
+    left: 0px;
+    -webkit-animation: upAndDown 4s ease-in-out infinite;
+    animation: upAndDown 4s ease-in-out infinite;
+}
+
+@-webkit-keyframes upAndDown {
+    0% {
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+    }
+    50% {
+        -webkit-transform: translateY(20px);
+        transform: translateY(20px);
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes upAndDown {
+    0% {
+        -webkit-transform: translateY(0px);
+        transform: translateY(0px);
+    }
+    50% {
+        -webkit-transform: translateY(20px);
+        transform: translateY(20px);
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+.page2{
+    background: rgb(192,162,99);
+    text-align: center;
+}
+.hide{
+    display: none;
+}
+.show{
+    display: inline-block;
+}

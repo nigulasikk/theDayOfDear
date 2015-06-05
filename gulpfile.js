@@ -4,7 +4,7 @@
  * @date    2015-04-09 23:30:20
  * @version $Id$
  */
-var distFileName="theDayOfDear";
+var distFileName = "theDayOfDear";
 
 var gulp = require('gulp');
 var pngquant = require('imagemin-pngquant');
@@ -16,12 +16,25 @@ var clean = require('gulp-clean');
 var htmlmin = require('gulp-htmlmin');
 //var rename = require('gulp-rename');
 var cache = require('gulp-cache');
+var browserSync = require('browser-sync');
 
 
 
-//return gulp.src(['webapp/wxshu/**/*.html','webapp/admin/**/*.html','webapp/proxy/**/*.html'],{base:'webapp'})
+
+gulp.task('live', function() {
+    browserSync({
+        files: "**",
+        server: {
+            baseDir: "./"
+        }
+    });
+});
+
+
 gulp.task('htmlMin', function() {
-    return gulp.src(['src/*.html'],{base:'src'})
+    return gulp.src(['src/*.html'], {
+            base: 'src'
+        })
         .pipe(htmlmin({
             collapseWhitespace: true
         }))
@@ -30,7 +43,9 @@ gulp.task('htmlMin', function() {
 
 
 gulp.task('imageMin', function() {
-    return gulp.src(['src/img/**/*','webapp/wxshu/img/**/*'],{base:'src'})
+    return gulp.src(['src/img/**/*', 'webapp/wxshu/img/**/*'], {
+            base: 'src'
+        })
         .pipe(cache(imagemin({
             progressive: true,
             svgoPlugins: [{
@@ -42,7 +57,9 @@ gulp.task('imageMin', function() {
 });
 
 gulp.task('cssMin', function() {
-    return gulp.src(['src/css/*.css'],{base:'src'})
+    return gulp.src(['src/css/*.css'], {
+            base: 'src'
+        })
         .pipe(minifyCSS({
             keepBreaks: true
         }))
@@ -52,13 +69,15 @@ gulp.task('cssMin', function() {
 
 gulp.task('clean', function() {
     return gulp.src(distFileName, {
-        read: false
-    })
+            read: false
+        })
         .pipe(clean());
 });
 
 gulp.task('jsMin', function() {
-    return gulp.src(['src/js/**/*.js'],{base:'src'})
+    return gulp.src(['src/js/**/*.js'], {
+            base: 'src'
+        })
         .pipe(uglify())
         .pipe(gulp.dest(distFileName));
 });
@@ -77,6 +96,5 @@ gulp.task('default', ['clean'], function() {
 
 
 gulp.task('min', ['copy'], function() {
-    gulp.start('jsMin', 'cssMin', 'htmlMin','imageMin');
+    gulp.start('jsMin', 'cssMin', 'htmlMin', 'imageMin');
 });
-
