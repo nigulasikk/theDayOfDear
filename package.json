@@ -1,18 +1,18 @@
 {
-  "name": "whiletime",
-  "version": "3.0.0",
-  "description": "",
+  "name": "kk-seed",
+  "version": "0.0.0",
+  "description": "seed",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "type": "git",
-    "url": "git@121.40.127.218:wetime-frontend.git"
+    "type": "git"
   },
   "author": "kk",
   "license": "ISC",
   "devDependencies": {
+    "browser-sync": "^2.7.6",
     "gulp": "^3.9.0",
     "gulp-cache": "^0.2.9",
     "gulp-clean": "^0.3.1",

@@ -4,7 +4,7 @@
  * @date    2015-04-09 23:30:20
  * @version $Id$
  */
-var distFileName = "theDayOfDear";
+var distFileName = "dearDay";
 
 var gulp = require('gulp');
 var pngquant = require('imagemin-pngquant');
@@ -43,7 +43,7 @@ gulp.task('htmlMin', function() {
 
 
 gulp.task('imageMin', function() {
-    return gulp.src(['src/img/**/*', 'webapp/wxshu/img/**/*'], {
+    return gulp.src(['src/img/*'], {
             base: 'src'
         })
         .pipe(cache(imagemin({

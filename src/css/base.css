@@ -24,6 +24,16 @@ html {
     -webkit-animation: upAndDown 4s ease-in-out infinite;
     animation: upAndDown 4s ease-in-out infinite;
 }
+.arr-wrap{
+    width:100%;
+    display:block;
+    text-align: center;
+    position: absolute;
+    bottom:20px;
+}
+.arr {
+    margin-right:25px;
+}
 
 @-webkit-keyframes upAndDown {
     0% {
@@ -55,13 +65,49 @@ html {
     }
 }
 
-.page2{
-    background: rgb(192,162,99);
+.page2 {
+    background: rgb(192, 162, 99);
     text-align: center;
 }
-.hide{
+
+.page3 {
+    background: white;
+    text-align: center;
+}
+
+.page4 {
+    background: rgb(235, 136, 173);
+    text-align: center;
+}
+
+.page5 {
+    background: rgb(100, 192, 241);
+    text-align: center;
+}
+
+.page6 {
+    background: rgb(247, 158, 71);
+    text-align: center;
+}
+
+.page7 {
+    background: rgb(241, 95, 99);
+    text-align: center;
+}
+
+.hide {
     display: none;
 }
-.show{
+
+.show {
     display: inline-block;
+}
+.begin{
+    font-size: 18px;
+    background:white;
+    color: rgb(241, 95, 99);
+    width:190px;
+    margin:10px auto;
+    line-height: 1.4;
+    border-radius: 10px;
 }

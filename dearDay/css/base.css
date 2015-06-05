@@ -1,0 +1,23 @@
+.arr-wrap,.bottle,.river{position:absolute}
+.arr-wrap,.page2,.page3,.page4,.page5,.page6,.page7{text-align:center}
+html{height:100%}
+.bg-welcome{background:url(../img/bg-yellow.png) center center no-repeat;background-size:cover;width:100%}
+.river{width:100%;height:100px;background:url(../img/water.png) repeat-x;background-size:cover;bottom:0}
+.bottle{bottom:60px;left:0;-webkit-animation:upAndDown 4s ease-in-out infinite;animation:upAndDown 4s ease-in-out infinite}
+.arr-wrap{width:100%;display:block;bottom:20px}
+.arr{margin-right:25px}
+@-webkit-keyframes upAndDown{0%,100%{-webkit-transform:translateY(0);transform:translateY(0)}
+50%{-webkit-transform:translateY(20px);transform:translateY(20px)}
+}
+@keyframes upAndDown{0%,100%{-webkit-transform:translateY(0);transform:translateY(0)}
+50%{-webkit-transform:translateY(20px);transform:translateY(20px)}
+}
+.page2{background:#c0a263}
+.page3{background:#fff}
+.page4{background:#eb88ad}
+.page5{background:#64c0f1}
+.page6{background:#f79e47}
+.page7{background:#f15f63}
+.hide{display:none}
+.show{display:inline-block}
+.begin{font-size:18px;background:#fff;color:#f15f63;width:190px;margin:10px auto;line-height:1.4;border-radius:10px}
