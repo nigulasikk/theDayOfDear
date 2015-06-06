@@ -63,10 +63,15 @@ $(document).ready(function() {
     $(".begin").click(function() {
         window.location.href = "follow.html";
     });
+    var joinNo;
 //初始化点击率
-$.get("/marketingactivity/f89aa7644dc286fb014dc3dad365269d/addclick");
+$.get("/marketingactivity/f89aa7644dc286fb014dc3dad365269d/clickno",function(no){
+    joinNo=no.clickno;
+    initwx();
+});
 
-    var curl = window.location.href;
+function initwx(){
+     var curl = window.location.href;
     var url = "/wxpay/prepare";
     $.ajax({
         type: "post",
@@ -88,10 +93,12 @@ $.get("/marketingactivity/f89aa7644dc286fb014dc3dad365269d/addclick");
             console.log("ERROR:", response)
         }
     });
+}
+   
 
     wx.ready(function() {
         wx.onMenuShareTimeline({
-            title: '这几天的时光书小编全包了，我是第6847个参与“时光书”亲子节的妈妈！', // 分享标题
+            title: '这几天的时光书小编全包了，我是第'+joinNo+'个参与“时光书”亲子节的妈妈！', // 分享标题
 
             link: 'www.whiletime.com/dearDay/dear.html', // 分享链接
             imgUrl: 'http://whiletime.com/dearDay/img/clock.png', // 分享图标
@@ -106,7 +113,7 @@ $.get("/marketingactivity/f89aa7644dc286fb014dc3dad365269d/addclick");
 
         wx.onMenuShareAppMessage({
             title: '这几天的时光书小编全包了！', // 分享标题
-            desc: '我是第6847个参与“时光书”亲子节的妈妈！', // 分享描述
+            desc: '我是第'+joinNo+'个参与“时光书”亲子节的妈妈！', // 分享描述
             link: 'www.whiletime.com/dearDay/dear.html', // 分享链接
             imgUrl: 'http://whiletime.com/dearDay/img/clock.png', // 分享图标
             success: function() {

@@ -32,7 +32,7 @@ html {
     bottom:20px;
 }
 .arr {
-    margin-right:25px;
+    /*margin-right:25px;*/
 }
 
 @-webkit-keyframes upAndDown {
@@ -111,3 +111,13 @@ html {
     line-height: 1.4;
     border-radius: 10px;
 }
+.animated-two {
+-webkit-animation-duration: 3s;
+animation-duration: 3s;
+-webkit-animation-fill-mode: both;
+animation-fill-mode: both;
+}
+
+
+
+
