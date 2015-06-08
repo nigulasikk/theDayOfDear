@@ -64,44 +64,44 @@ $(document).ready(function() {
         window.location.href = "follow.html";
     });
     var joinNo;
-//初始化点击率
-$.get("/marketingactivity/f89aa7644dc286fb014dc3dad365269d/clickno",function(no){
-    joinNo=no.clickno;
-    initwx();
-});
-
-function initwx(){
-     var curl = window.location.href;
-    var url = "/wxpay/prepare";
-    $.ajax({
-        type: "post",
-        url: url,
-        data: {
-            "curl": curl
-        },
-        success: function(response) {
-            wx.config({
-                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-                appId: response['appid'], // 必填，公众号的唯一标识
-                timestamp: response['timestamp'], // 必填，生成签名的时间戳
-                nonceStr: response['noncestr'], // 必填，生成签名的随机串
-                signature: response['sign_result'], // 必填，签名，见附录1
-                jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage']
-            });
-        },
-        error: function(response) {
-            console.log("ERROR:", response)
-        }
+    //初始化点击率
+    $.get("/marketingactivity/f89aa7644dc286fb014dc3dad365269d/clickno", function(no) {
+        joinNo = no.clickno;
+        initwx();
     });
-}
-   
+
+    function initwx() {
+        var curl = window.location.href;
+        var url = "/wxpay/prepare";
+        $.ajax({
+            type: "post",
+            url: url,
+            data: {
+                "curl": curl
+            },
+            success: function(response) {
+                wx.config({
+                    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                    appId: response['appid'], // 必填，公众号的唯一标识
+                    timestamp: response['timestamp'], // 必填，生成签名的时间戳
+                    nonceStr: response['noncestr'], // 必填，生成签名的随机串
+                    signature: response['sign_result'], // 必填，签名，见附录1
+                    jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage']
+                });
+            },
+            error: function(response) {
+                console.log("ERROR:", response)
+            }
+        });
+    }
+
 
     wx.ready(function() {
         wx.onMenuShareTimeline({
-            title: '这几天的时光书小编全包了，我是第'+joinNo+'个参与“时光书”亲子节的妈妈！', // 分享标题
+            title: '这几天的时光书小编全包了，我是第' + joinNo + '个参与“时光书”亲子节的妈妈！', // 分享标题
 
             link: 'www.whiletime.com/dearDay/dear.html', // 分享链接
-            imgUrl: 'http://whiletime.com/dearDay/img/clock.png', // 分享图标
+            imgUrl: 'http://whiletime.com/dearDay/img/sharepic.png', // 分享图标
             success: function() {
                 // 用户确认分享后执行的回调函数
                 $.get("/marketingactivity/f89aa7644dc286fb014dc3dad365269d/addshare");
@@ -113,9 +113,9 @@ function initwx(){
 
         wx.onMenuShareAppMessage({
             title: '这几天的时光书小编全包了！', // 分享标题
-            desc: '我是第'+joinNo+'个参与“时光书”亲子节的妈妈！', // 分享描述
+            desc: '我是第' + joinNo + '个参与“时光书”亲子节的妈妈！', // 分享描述
             link: 'www.whiletime.com/dearDay/dear.html', // 分享链接
-            imgUrl: 'http://whiletime.com/dearDay/img/clock.png', // 分享图标
+            imgUrl: 'http://whiletime.com/dearDay/img/sharepic.png', // 分享图标
             success: function() {
                 // 用户确认分享后执行的回调函数
                 $.get("/marketingactivity/f89aa7644dc286fb014dc3dad365269d/addshare");
@@ -134,6 +134,30 @@ function initwx(){
     wx.error(function(res) {
         console.log(res);
     });
+    var myVideo = document.getElementById("song");
+    // myVideo.src="video/sunshine.mp3";
 
+
+    document.getElementById("play").onclick = function() {
+        playVid();
+         document.getElementById("pause").style.display="block";
+        document.getElementById("play").style.display="none";
+    };
+    document.getElementById("pause").onclick = function() {
+        pauseVid();
+        document.getElementById("pause").style.display="none";
+        document.getElementById("play").style.display="block";
+    };
+
+
+
+
+    function playVid() {
+        myVideo.play();
+    }
+
+    function pauseVid() {
+        myVideo.pause();
+    }
 
 });

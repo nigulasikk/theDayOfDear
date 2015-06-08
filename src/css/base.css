@@ -35,6 +35,14 @@ html {
     /*margin-right:25px;*/
 }
 
+#play{
+    background-color: green;
+}
+#pause{
+    background-color: red;
+}
+
+
 @-webkit-keyframes upAndDown {
     0% {
         -webkit-transform: translateY(0px);
